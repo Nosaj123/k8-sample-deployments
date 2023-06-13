@@ -1,0 +1,7 @@
+minikube addons enable metrics-server
+minikube addons enable dashboard
+minikube stop
+minikube start --listen-address='0.0.0.0'
+kubectl proxy --address='0.0.0.0' --disable-filter=true
+minikube dashboard --url
+(port will be the proxy port - 8081)
